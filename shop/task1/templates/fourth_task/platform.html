@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+</head>
+<body>
+    {% extends 'fourth_task/menu.html' %}
+
+    {% block pagename %}Главная страница{% endblock %}
+
+    {% block content %}
+    <h1>Главная страница</h1>
+    <p>Добро пожаловать на нашу игровую платформу!</p>
+    {% endblock %}
+    <nav>
+        <ul>
+            <li><a href="/task4/">Главная страница</a></li>
+            <li><a href="/task4/games/">Магазин</a></li>
+            <li><a href="/task4/cart/">Корзина</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

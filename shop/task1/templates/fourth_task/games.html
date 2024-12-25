@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин</title>
+</head>
+<body>
+    {% extends 'fourth_task/menu.html' %}
+
+    {% block pagename %}Магазин{% endblock %}
+
+    {% block content %}
+    <h1>Магазин</h1>
+        <ul>
+            {% for game in games %}
+            <li>{{ game }}</li>
+            {% endfor %}
+        </ul>
+    <a href="/task4/">Вернуться на главную</a>
+    {% endblock %}
+</body>
+</html>
