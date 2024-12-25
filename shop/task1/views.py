@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from django.shortcuts import render
 from .models import Game
+from django.core.paginator import Paginator
+from .models import News
 
 def platform(request):
     return render(request, 'task1/templates/fourth_task/platform.html')  # Новый путь
@@ -32,3 +34,12 @@ def cart(request):
 def games(request):
     games = Game.objects.all()  # Получаем все игры
     return render(request, 'task1/templates/fourth_task/games.html', {'games': games})  # Новый путь
+
+def news(request):
+    news_list = News.objects.all().order_by('-date')  # Сортируем по дате, последние новости первыми
+    paginator = Paginator(news_list, 5)  # Показываем 5 новостей на странице
+
+    page_number = request.GET.get('page')  # Получаем номер страницы из URL
+    page_obj = paginator.get_page(page_number)  # Получаем объект страницы
+
+    return render(request, 'task1/news.html', {'news': page_obj})
